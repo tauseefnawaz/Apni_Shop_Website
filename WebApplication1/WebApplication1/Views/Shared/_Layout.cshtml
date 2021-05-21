@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - APNI SHOP</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3 text-white bg-dark">
+            <div class="container p-1 m-1 m.r-3 justify-content-center col-12">
+                <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index"><span style="text-decoration:none; font-size:xx-large; font-weight:bolder">APNI SHOP</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex bg-dark text-dark justify-content-end">
+                    <ul class="navbar-nav flex-grow-1 ">
+                        <li class="w-100">
+                            @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+                            {
+                                <div class="input-group p-3 justify-content-center" style="margin-top:10px">
+                                    <div class="form-outline w-75">
+                                        <input type="search" class="form-control p-3 m.r-2" name="Name" placeholder="Find Car, Mobile Phone and more..." style="padding: 5px; height: 60px" />
+                                    </div>
+                                    <button type="submit" class="btn btn-light col-1" style="padding:5px">
+                                        <i class="fas fa-search" style="padding:5px"></i>
+                                    </button>
+                                </div>
+                            }
+                        </li>
+                        <li class="nav-item col-2 w-100" style="margin-top:20px">
+                            <button class="bg-light border border-danger rounded" style="font-size:30px;border-radius:25px">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index"><i class="material-icons p-1">add</i>SELL</a>
+                            </button>
+
+                        </li>
+                        <li class="nav-item col-2 w-100" style="margin-top:20px">
+                            <div class="btn-group">
+                                <button class="bg-light border border-danger rounded" style="font-size:30px;border-radius:25px">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login"><i class="fa fa-user-circle"></i>LOGIN</a>
+                                </button>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle bg-light border border-danger rounded" data-toggle="dropdown" style="font-size:30px;border-radius:25px">
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">My Orders</a>
+                                        <a class="dropdown-item" href="#">LogOut</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    @RenderBody()
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - WebApplication1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

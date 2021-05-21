@@ -1,0 +1,73 @@
+﻿@model IEnumerable<WebApplication1.Models.Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3 text-dark">
+    <div class="container">
+        <div class="navbar-collapse collapse d-sm-inline-flex text-dark">
+            <div class="btn-group col-3">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span style="text-decoration:none; font-size:larger; font-weight:bold">All Categories</span></button>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">Vehicles</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">Animals</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">Mobiles</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">Electronics & Home Appliances</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">Furniture & Home Decor</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">Fashion & Beauty</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">Property for Rent</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">Services</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">Books, Sports & Hobbies</a>
+                </div>
+            </div>
+            <div class="col-2"></div>
+            <ul class="navbar-nav flex-grow-1 justify-content-md-start pull-right">
+                <li class="nav-item col-2">
+                    <span class="font-weight-bold" style="text-decoration:none;"> @Html.ActionLink("Mobile Phones", "categories", "Home", new { categories = "Mobile Phones" }, null) </span>
+                </li>
+                <li class="nav-item col-2">
+                    <span class="font-weight-bold" style="text-decoration:none;"> @Html.ActionLink("Cars", "categories", "Home", new { categories = "Cars" }, null) </span>
+                </li>
+                <li class="nav-item col-2">
+                    <span class="font-weight-bold" style="text-decoration:none;">@Html.ActionLink("MotorCycle", "categories", "Home", new { categories = "MotorCycle" }, null) </span>
+                </li>
+                <li class="nav-item col-2">
+                    <span class="font-weight-bold" style="text-decoration:none;">@Html.ActionLink("Houses", "categories", "Home", new { categories = "Houses" }, null) </span>
+                </li>
+                <li class="nav-item col-2">
+                    <span class="font-weight-bold" style="text-decoration:none;">@Html.ActionLink("Tablet", "categories", "Home", new { categories = "Tablet" }, null) </span>
+                </li>
+                <li class="nav-item col-3">
+                    <span class="font-weight-bold " style="text-decoration:none;">@Html.ActionLink("Lands & Plots", "categories", "Home", new { categories = "Lands Plots" }, null) </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="carousel slide w-100" data-ride="carousel">
+    <div class="carousel-inner">
+        <img src="/Images/Screenshot (55).png" style="width:100%" />
+    </div>
+</div>
+
+@if (Model.Count() > 0)
+{
+    <div class="row" style="margin:30px;">
+
+        @foreach (var product in Model)
+        {
+            <div class="col-md-3 border-dark rounded">
+                <partial name="GetProduct" model="@product" />
+            </div>
+        }
+    </div>
+}

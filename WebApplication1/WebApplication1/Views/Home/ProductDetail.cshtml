@@ -1,0 +1,60 @@
+﻿@model MultipleData
+<div class="row">
+    <div class="col-md-8">
+        <div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner w-100 h-75">
+                <img src="@(string.IsNullOrEmpty(Model.product.ImageName) ? "/images/noimage.png" : "/images/"+Model.product.ImageName)" class="d-block w-200 h-100" ) />
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="border border-dark rounded" style="padding:20px">
+            <p class="price font-weight-bolder justify-content-center" style="font-size:60px">
+                Rs. @Model.product.price
+            </p>
+            <p class="price text-secondary font-italic font-weight-normal justify-content-center" style="font-size:20px">
+                @Model.product.title
+            </p>
+        </div>
+        <div class="border border-dark rounded" style="padding:20px">
+            <p class="price font-weight-bolder justify-content-center" style="font-size:30px">
+                Seller description
+            </p>
+            <div class="row">
+                <p class="dropdown-item font-weight-bolder" data-toggle="modal" data-target="#profile-modal" style="height:20px;width:40px;font-size:25px;">
+                    <i class="fa fa-user"></i>  @Model.user.FirstName @Model.user.LastName
+                </p>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-dark btn-block">Call me</button>
+            </div>
+
+            <div class="row justify-content-center">
+                <p class="col " style="margin-top:10px;padding:10px">
+                    <i class="material-icons" style="font-size:36px">call</i>
+                </p>
+                <p class="col-3 font-weight-normal" style="padding-top: 25px; font-size: 18px">
+                    @Model.user.PhoneNumber
+                </p>
+            </div>
+        </div>
+    </div>
+
+<div class="row" style="margin-top: 20px; margin-left: 0; margin-right: 10px;">
+    <div class="col-md-8 border border-dark rounded" style="padding:20px">
+        <p class="description font-weight-normal" style="border-width:5px;font-size:20px;">
+            @Model.product.Description
+        </p>
+    </div>
+</div>
+<br />
+
+<style>
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    body{
+        margin:20px;
+    }
+</style>
